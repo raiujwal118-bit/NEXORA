@@ -6,30 +6,63 @@
     <title>NEXORA | Cyber Technology</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #050a08; color: #eaffea; font-family: Arial, sans-serif; min-height: 100vh; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 22px 8%; border-bottom: 1px solid #173b25; }
+        body { background: #050a08; color: #eaffea; font-family: Arial, sans-serif; min-height: 100vh; scroll-behavior: smooth; }
+        
+        /* Ticker Bar */
+        .ticker-wrap { background: #08110c; border-bottom: 1px solid #173b25; color: #39ff70; font-size: 13px; padding: 8px 0; overflow: hidden; white-space: nowrap; width: 100%; }
+        .ticker { display: inline-block; animation: ticker 25s linear infinite; }
+        @keyframes ticker { 0% { transform: translate3d(100%, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
+
+        header { display: flex; justify-content: space-between; align-items: center; padding: 22px 8%; border-bottom: 1px solid #173b25; background: #050a08; position: sticky; top: 0; z-index: 100; }
         .logo { color: #39ff70; font-size: 27px; font-weight: bold; letter-spacing: 3px; }
-        nav a { color: #b7c9bc; text-decoration: none; margin-left: 20px; font-size: 14px; }
+        nav a { color: #b7c9bc; text-decoration: none; margin-left: 20px; font-size: 14px; transition: 0.3s; }
         nav a:hover { color: #39ff70; }
-        .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: calc(100vh - 80px); padding: 0 20px; }
+        
+        .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: calc(100vh - 120px); padding: 0 20px; }
         .tag { background: rgba(57, 255, 112, 0.1); color: #39ff70; padding: 6px 15px; border-radius: 20px; font-size: 12px; letter-spacing: 2px; margin-bottom: 20px; border: 1px solid rgba(57, 255, 112, 0.3); }
         h1 { font-size: 42px; color: #ffffff; margin-bottom: 15px; letter-spacing: 4px; }
         p { color: #8fa89b; max-width: 600px; font-size: 16px; line-height: 1.6; margin-bottom: 30px; }
         .btn { display: inline-block; background: #39ff70; color: #050a08; padding: 12px 30px; border-radius: 5px; font-weight: bold; text-decoration: none; transition: 0.3s; }
         .btn:hover { background: #2ecc71; box-shadow: 0 0 15px rgba(57, 255, 112, 0.5); }
-        .features { padding: 80px 8%; background: #08110c; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .card { background: #050a08; border: 1px solid #173b25; padding: 30px; border-radius: 8px; }
+        
+        .section-title { text-align: center; font-size: 28px; color: #ffffff; margin-bottom: 10px; letter-spacing: 2px; }
+        .section-desc { text-align: center; color: #8fa89b; font-size: 14px; margin-bottom: 40px; }
+
+        .features, .about, .contact { padding: 80px 8%; }
+        .features { background: #08110c; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card { background: #050a08; border: 1px solid #173b25; padding: 30px; border-radius: 8px; transition: 0.3s; }
+        .card:hover { border-color: #39ff70; transform: translateY(-5px); }
         .card h3 { color: #39ff70; margin-bottom: 10px; }
         .card p { font-size: 14px; margin-bottom: 0; }
-        footer { text-align: center; padding: 20px; border-top: 1px solid #173b25; color: #617d6d; font-size: 13px; }
+
+        .about { background: #050a08; text-align: center; }
+        .about-content { max-width: 700px; margin: 0 auto; color: #b7c9bc; line-height: 1.8; font-size: 15px; }
+
+        .contact { background: #08110c; }
+        .contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #eaffea; font-size: 14px; outline: none; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: #39ff70; }
+        .contact-form textarea { resize: vertical; height: 120px; }
+
+        footer { text-align: center; padding: 20px; border-top: 1px solid #173b25; color: #617d6d; font-size: 13px; background: #050a08; }
     </style>
 </head>
 <body>
+
+    <!-- Cyber News Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            ⚡ LATEST ALERT: NEXORA v2.0 Advanced Cyber Security Protocols Deployed Successfully &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🚀 Innovation, Digital Security & Next-Gen Tech in One Place &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🔒 Stay Safe, Stay Secure with NEXORA
+        </div>
+    </div>
+
     <header>
         <div class="logo">NEXORA</div>
         <nav>
             <a href="#">Home</a>
             <a href="#features">Features</a>
+            <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -42,18 +75,41 @@
     </section>
 
     <section id="features" class="features">
-        <div class="card">
-            <h3>Cyber Security</h3>
-            <p>Advanced protocols and digital defense systems to safeguard modern infrastructure.</p>
+        <h2 class="section-title">CORE FEATURES</h2>
+        <p class="section-desc">Engineered for the next generation of digital infrastructure</p>
+        <div class="grid">
+            <div class="card">
+                <h3>Cyber Security</h3>
+                <p>Advanced protocols and digital defense systems to safeguard modern infrastructure.</p>
+            </div>
+            <div class="card">
+                <h3>Next-Gen Tech</h3>
+                <p>Cutting-edge technological solutions engineered for high performance and speed.</p>
+            </div>
+            <div class="card">
+                <h3>Digital Innovation</h3>
+                <p>Transforming complex concepts into sleek, functional, and secure environments.</p>
+            </div>
         </div>
-        <div class="card">
-            <h3>Next-Gen Tech</h3>
-            <p>Cutting-edge technological solutions engineered for high performance and speed.</p>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title">ABOUT NEXORA</h2>
+        <p class="section-desc">The architects of the digital frontier</p>
+        <div class="about-content">
+            <p>NEXORA is a premier cyber technology initiative focused on pushing the boundaries of digital defense and innovative engineering. Our mission is to build robust, high-performance, and secure virtual environments that empower the future of technology.</p>
         </div>
-        <div class="card">
-            <h3>Digital Innovation</h3>
-            <p>Transforming complex concepts into sleek, functional, and secure environments.</p>
-        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">GET IN TOUCH</h2>
+        <p class="section-desc">Have a project or query? Send us a message.</p>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn" style="width: 100%; cursor: pointer;">SEND MESSAGE</button>
+        </form>
     </section>
 
     <footer>
