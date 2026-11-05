@@ -7,28 +7,43 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #050a08; color: #eaffea; font-family: Arial, sans-serif; min-height: 100vh; padding: 40px 8%; }
-        .back-btn { display: inline-block; color: #39ff70; text-decoration: none; margin-bottom: 30px; font-weight: bold; border: 1px solid #173b25; padding: 8px 16px; border-radius: 5px; }
-        .back-btn:hover { background: rgba(57, 255, 112, 0.1); }
-        h1 { color: #39ff70; font-size: 36px; margin-bottom: 20px; letter-spacing: 2px; }
-        p { color: #b7c9bc; line-height: 1.8; font-size: 16px; margin-bottom: 20px; }
-        .box { background: #08110c; border: 1px solid #173b25; padding: 25px; border-radius: 8px; margin-top: 20px; transition: 0.3s; text-decoration: none; display: block; }
-        .box:hover { border-color: #39ff70; transform: translateY(-3px); }
-        .box h3 { color: #39ff70; margin-bottom: 10px; }
-        .box p { color: #8fa89b; font-size: 14px; margin-bottom: 0; }
+        .back-btn { display: inline-block; color: #39ff70; text-decoration: none; margin-bottom: 30px; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+        h1 { font-size: 36px; color: #ffffff; margin-bottom: 15px; border-bottom: 2px solid #173b25; padding-bottom: 10px; }
+        p { color: #8fa89b; font-size: 16px; line-height: 1.6; margin-bottom: 40px; }
+        
+        .tool-card { background: #08110c; border: 1px solid #173b25; border-radius: 8px; padding: 30px; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .tool-card h2 { color: #39ff70; font-size: 22px; margin-bottom: 15px; text-align: center; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; color: #b7c9bc; font-size: 14px; margin-bottom: 8px; }
+        .input-group input { width: 100%; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #39ff70; font-size: 16px; outline: none; }
+        .input-group input:focus { border-color: #39ff70; }
+        
+        .meter { height: 8px; width: 100%; background: #173b25; border-radius: 4px; overflow: hidden; margin-bottom: 15px; }
+        .meter-fill { height: 100%; width: 0%; transition: width 0.3s, background-color 0.3s; }
+        
+        .status-text { font-size: 14px; font-weight: bold; margin-bottom: 15px; }
+        .rules { list-style: none; font-size: 13px; color: #8fa89b; }
+        .rules li { margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .rules li.valid { color: #39ff70; }
+        .rules li.valid::before { content: "✓"; }
+        .rules li.invalid::before { content: "✗"; }
     </style>
 </head>
 <body>
     <a href="index.html" class="back-btn">← Back to Home</a>
-    <h1>CYBER SECURITY ARCHITECTURE</h1>
-    <p>NEXORA delivers end-to-end digital defense infrastructure engineered to safeguard enterprise assets, cloud systems, and networks against evolving cyber threats. (Click any option below)</p>
-    
-    <a href="threat-detection.html" class="box">
-        <h3>🛡️ Threat Detection & Mitigation →</h3>
-        <p>Real-time AI-powered monitoring and automated response mechanisms to nullify intrusions before impact.</p>
-    </a>
-    <a href="zero-trust.html" class="box">
-        <h3>🔒 Zero-Trust Architecture →</h3>
-        <p>Strict access controls, continuous authentication, and encrypted data tunnels protecting sensitive workflows.</p>
-    </a>
-</body>
-</html>
+    <h1>Cyber Security & Digital Defense</h1>
+    <p>Advanced protocols and digital defense systems engineered to safeguard modern infrastructure.</p>
+
+    <!-- Interactive Password Checker Tool -->
+    <div class="tool-card">
+        <h2>🔒 Live Password Vulnerability Checker</h2>
+        <div class="input-group">
+            <label for="pwd">Enter a Password to Test Strength:</label>
+            <input type="password" id="pwd" placeholder="Type password..." oninput="checkStrength()">
+        </div>
+
+        <div class="meter
+git add cyber-security.html
+git commit -m "Add interactive password strength checker tool"
+git push -f origin main
