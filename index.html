@@ -8,7 +8,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #050a08; color: #eaffea; font-family: Arial, sans-serif; min-height: 100vh; scroll-behavior: smooth; }
         
-        /* Ticker Bar */
         .ticker-wrap { background: #08110c; border-bottom: 1px solid #173b25; color: #39ff70; font-size: 13px; padding: 8px 0; overflow: hidden; white-space: nowrap; width: 100%; }
         .ticker { display: inline-block; animation: ticker 25s linear infinite; }
         @keyframes ticker { 0% { transform: translate3d(100%, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
@@ -48,9 +47,8 @@
         footer { text-align: center; padding: 20px; border-top: 1px solid #173b25; color: #617d6d; font-size: 13px; background: #050a08; }
     </style>
 </head>
-<body>
+<body id="home">
 
-    <!-- Cyber News Ticker -->
     <div class="ticker-wrap">
         <div class="ticker">
             ⚡ LATEST ALERT: NEXORA v2.0 Advanced Cyber Security Protocols Deployed Successfully &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🚀 Innovation, Digital Security & Next-Gen Tech in One Place &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 🔒 Stay Safe, Stay Secure with NEXORA
@@ -60,7 +58,7 @@
     <header>
         <div class="logo">NEXORA</div>
         <nav>
-            <a href="#">Home</a>
+            <a href="#home">Home</a>
             <a href="#features">Features</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
@@ -104,7 +102,7 @@
     <section id="contact" class="contact">
         <h2 class="section-title">GET IN TOUCH</h2>
         <p class="section-desc">Have a project or query? Send us a message.</p>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully! Thank you for contacting NEXORA.');">
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
             <textarea placeholder="Your Message" required></textarea>
@@ -117,24 +115,3 @@
     </footer>
 </body>
 </html>
-
-    <section id="about" class="about" style="padding: 80px 8%; background: #050a08; text-align: center;">
-        <h2 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; letter-spacing: 2px;">ABOUT NEXORA</h2>
-        <p style="color: #8fa89b; font-size: 14px; margin-bottom: 40px;">The architects of the digital frontier</p>
-        <div style="max-width: 700px; margin: 0 auto; color: #b7c9bc; line-height: 1.8; font-size: 15px;">
-            <p>NEXORA is a premier cyber technology initiative focused on pushing the boundaries of digital defense and innovative engineering. Our mission is to build robust, high-performance, and secure virtual environments that empower the future of technology.</p>
-        </div>
-    </section>
-</body>
-</html>
-
-    <section id="contact" class="contact" style="padding: 80px 8%; background: #08110c;">
-        <h2 style="text-align: center; font-size: 28px; color: #ffffff; margin-bottom: 10px; letter-spacing: 2px;">GET IN TOUCH</h2>
-        <p style="text-align: center; color: #8fa89b; font-size: 14px; margin-bottom: 40px;">Have a project or query? Send us a message.</p>
-        <form style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-            <input type="text" placeholder="Your Name" required style="width: 100%; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #eaffea; outline: none;">
-            <input type="email" placeholder="Your Email" required style="width: 100%; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #eaffea; outline: none;">
-            <textarea placeholder="Your Message" required style="width: 100%; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #eaffea; outline: none; height: 120px;"></textarea>
-            <button type="submit" style="width: 100%; background: #39ff70; color: #050a08; padding: 12px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">SEND MESSAGE</button>
-        </form>
-    </section>
