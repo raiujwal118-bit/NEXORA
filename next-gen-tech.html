@@ -11,22 +11,24 @@
         .back-btn:hover { background: rgba(57, 255, 112, 0.1); }
         h1 { color: #39ff70; font-size: 36px; margin-bottom: 20px; letter-spacing: 2px; }
         p { color: #b7c9bc; line-height: 1.8; font-size: 16px; margin-bottom: 20px; }
-        .box { background: #08110c; border: 1px solid #173b25; padding: 25px; border-radius: 8px; margin-top: 20px; }
-        .box h3 { color: #ffffff; margin-bottom: 10px; }
+        .box { background: #08110c; border: 1px solid #173b25; padding: 25px; border-radius: 8px; margin-top: 20px; transition: 0.3s; text-decoration: none; display: block; }
+        .box:hover { border-color: #39ff70; transform: translateY(-3px); }
+        .box h3 { color: #39ff70; margin-bottom: 10px; }
+        .box p { color: #8fa89b; font-size: 14px; margin-bottom: 0; }
     </style>
 </head>
 <body>
     <a href="index.html" class="back-btn">← Back to Home</a>
     <h1>NEXT-GEN TECHNOLOGIES</h1>
-    <p>Empowering digital transformation through high-performance software engineering, cloud integration, and autonomous automation tools.</p>
+    <p>Empowering digital transformation through high-performance software engineering, cloud integration, and autonomous automation tools. (Click any option below)</p>
     
-    <div class="box">
-        <h3>⚡ High-Speed Infrastructure</h3>
+    <a href="high-speed.html" class="box">
+        <h3>⚡ High-Speed Infrastructure →</h3>
         <p>Optimized low-latency server configurations designed for hyper-scalable web environments.</p>
-    </div>
-    <div class="box">
-        <h3>🤖 Intelligent Automation</h3>
+    </a>
+    <a href="intelligent-automation.html" class="box">
+        <h3>🤖 Intelligent Automation →</h3>
         <p>Integrating workflow automation algorithms to streamline complex data operations.</p>
-    </div>
+    </a>
 </body>
 </html>
