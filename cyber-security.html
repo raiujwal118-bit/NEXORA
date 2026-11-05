@@ -30,15 +30,15 @@
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-btn">← Back to Home</a>
+    <a href="index.html" class="back-btn">&#8592; Back to Home</a>
     <h1>Cyber Security & Digital Defense</h1>
     <p>Advanced protocols and digital defense systems engineered to safeguard modern infrastructure.</p>
 
     <div class="tool-card">
-        <h2>🔒 Live Password Vulnerability Checker</h2>
+        <h2>&#128274; Live Password Vulnerability Checker</h2>
         <div class="input-group">
             <label for="pwd">Enter a Password to Test Strength:</label>
-            <input type="password" id="pwd" placeholder="Type password..." oninput="checkStrength()">
+            <input type="password" id="pwd" placeholder="Type password..." />
         </div>
 
         <div class="meter">
@@ -47,19 +47,20 @@
         <div id="status" class="status-text" style="color: #8fa89b;">Strength: Waiting for input...</div>
 
         <ul class="rules">
-            <li id="rule-len" class="invalid"><span>✗</span> Minimum 8 characters</li>
-            <li id="rule-upper" class="invalid"><span>✗</span> Includes uppercase letters (A-Z)</li>
-            <li id="rule-num" class="invalid"><span>✗</span> Includes numbers (0-9)</li>
-            <li id="rule-spec" class="invalid"><span>✗</span> Includes special characters (!@#$%^&*)</li>
+            <li id="rule-len" class="invalid"><span>&#10007;</span> Minimum 8 characters</li>
+            <li id="rule-upper" class="invalid"><span>&#10007;</span> Includes uppercase letters (A-Z)</li>
+            <li id="rule-num" class="invalid"><span>&#10007;</span> Includes numbers (0-9)</li>
+            <li id="rule-spec" class="invalid"><span>&#10007;</span> Includes special characters (!@#$%^&*)</li>
         </ul>
     </div>
 
     <script>
-        function checkStrength() {
-            const val = document.getElementById('pwd').value;
-            const fill = document.getElementById('meter-fill');
-            const status = document.getElementById('status');
-            
+        const pwdInput = document.getElementById('pwd');
+        const fill = document.getElementById('meter-fill');
+        const status = document.getElementById('status');
+
+        pwdInput.addEventListener('input', function() {
+            const val = pwdInput.value;
             let score = 0;
             
             const hasLen = val.length >= 8;
@@ -97,7 +98,18 @@
                 status.innerText = 'Strength: STRONG (High Security)';
                 status.style.color = '#39ff70';
             }
-        }
+        });
 
         function updateRule(id, isValid, text) {
-            
+            const el = document.getElementById(id);
+            if (isValid) {
+                el.className = 'valid';
+                el.innerHTML = '<span>&#10003;</span> ' + text;
+            } else {
+                el.className = 'invalid';
+                el.innerHTML = '<span>&#10007;</span> ' + text;
+            }
+        }
+    </script>
+</body>
+</html>
