@@ -11,22 +11,24 @@
         .back-btn:hover { background: rgba(57, 255, 112, 0.1); }
         h1 { color: #39ff70; font-size: 36px; margin-bottom: 20px; letter-spacing: 2px; }
         p { color: #b7c9bc; line-height: 1.8; font-size: 16px; margin-bottom: 20px; }
-        .box { background: #08110c; border: 1px solid #173b25; padding: 25px; border-radius: 8px; margin-top: 20px; }
-        .box h3 { color: #ffffff; margin-bottom: 10px; }
+        .box { background: #08110c; border: 1px solid #173b25; padding: 25px; border-radius: 8px; margin-top: 20px; transition: 0.3s; text-decoration: none; display: block; }
+        .box:hover { border-color: #39ff70; transform: translateY(-3px); }
+        .box h3 { color: #39ff70; margin-bottom: 10px; }
+        .box p { color: #8fa89b; font-size: 14px; margin-bottom: 0; }
     </style>
 </head>
 <body>
     <a href="index.html" class="back-btn">← Back to Home</a>
     <h1>CYBER SECURITY ARCHITECTURE</h1>
-    <p>NEXORA delivers end-to-end digital defense infrastructure engineered to safeguard enterprise assets, cloud systems, and networks against evolving cyber threats.</p>
+    <p>NEXORA delivers end-to-end digital defense infrastructure engineered to safeguard enterprise assets, cloud systems, and networks against evolving cyber threats. (Click any option below)</p>
     
-    <div class="box">
-        <h3>🛡️ Threat Detection & Mitigation</h3>
+    <a href="threat-detection.html" class="box">
+        <h3>🛡️ Threat Detection & Mitigation →</h3>
         <p>Real-time AI-powered monitoring and automated response mechanisms to nullify intrusions before impact.</p>
-    </div>
-    <div class="box">
-        <h3>🔒 Zero-Trust Architecture</h3>
+    </a>
+    <a href="zero-trust.html" class="box">
+        <h3>🔒 Zero-Trust Architecture →</h3>
         <p>Strict access controls, continuous authentication, and encrypted data tunnels protecting sensitive workflows.</p>
-    </div>
+    </a>
 </body>
 </html>
