@@ -13,21 +13,20 @@
         p { color: #8fa89b; font-size: 16px; line-height: 1.6; margin-bottom: 40px; }
         
         .tool-card { background: #08110c; border: 1px solid #173b25; border-radius: 8px; padding: 30px; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .tool-card h2 { color: #39ff70; font-size: 22px; margin-bottom: 15px; text-align: center; }
+        .tool-card h2 { color: #39ff70; font-size: 22px; margin-bottom: 20px; text-align: center; }
         .input-group { margin-bottom: 20px; }
         .input-group label { display: block; color: #b7c9bc; font-size: 14px; margin-bottom: 8px; }
         .input-group input { width: 100%; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #39ff70; font-size: 16px; outline: none; }
         .input-group input:focus { border-color: #39ff70; }
         
-        .meter { height: 8px; width: 100%; background: #173b25; border-radius: 4px; overflow: hidden; margin-bottom: 15px; }
+        .meter { height: 10px; width: 100%; background: #173b25; border-radius: 5px; overflow: hidden; margin-bottom: 15px; }
         .meter-fill { height: 100%; width: 0%; transition: width 0.3s, background-color 0.3s; }
         
-        .status-text { font-size: 14px; font-weight: bold; margin-bottom: 15px; }
-        .rules { list-style: none; font-size: 13px; color: #8fa89b; }
-        .rules li { margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .status-text { font-size: 15px; font-weight: bold; margin-bottom: 20px; }
+        .rules { list-style: none; font-size: 14px; color: #8fa89b; }
+        .rules li { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
         .rules li.valid { color: #39ff70; }
-        .rules li.valid::before { content: "✓"; }
-        .rules li.invalid::before { content: "✗"; }
+        .rules li.invalid { color: #ff4d4d; }
     </style>
 </head>
 <body>
@@ -35,7 +34,6 @@
     <h1>Cyber Security & Digital Defense</h1>
     <p>Advanced protocols and digital defense systems engineered to safeguard modern infrastructure.</p>
 
-    <!-- Interactive Password Checker Tool -->
     <div class="tool-card">
         <h2>🔒 Live Password Vulnerability Checker</h2>
         <div class="input-group">
@@ -43,7 +41,63 @@
             <input type="password" id="pwd" placeholder="Type password..." oninput="checkStrength()">
         </div>
 
-        <div class="meter
-git add cyber-security.html
-git commit -m "Add interactive password strength checker tool"
-git push -f origin main
+        <div class="meter">
+            <div id="meter-fill" class="meter-fill"></div>
+        </div>
+        <div id="status" class="status-text" style="color: #8fa89b;">Strength: Waiting for input...</div>
+
+        <ul class="rules">
+            <li id="rule-len" class="invalid"><span>✗</span> Minimum 8 characters</li>
+            <li id="rule-upper" class="invalid"><span>✗</span> Includes uppercase letters (A-Z)</li>
+            <li id="rule-num" class="invalid"><span>✗</span> Includes numbers (0-9)</li>
+            <li id="rule-spec" class="invalid"><span>✗</span> Includes special characters (!@#$%^&*)</li>
+        </ul>
+    </div>
+
+    <script>
+        function checkStrength() {
+            const val = document.getElementById('pwd').value;
+            const fill = document.getElementById('meter-fill');
+            const status = document.getElementById('status');
+            
+            let score = 0;
+            
+            const hasLen = val.length >= 8;
+            const hasUpper = /[A-Z]/.test(val);
+            const hasNum = /[0-9]/.test(val);
+            const hasSpec = /[^A-Za-z0-9]/.test(val);
+
+            updateRule('rule-len', hasLen, 'Minimum 8 characters');
+            updateRule('rule-upper', hasUpper, 'Includes uppercase letters (A-Z)');
+            updateRule('rule-num', hasNum, 'Includes numbers (0-9)');
+            updateRule('rule-spec', hasSpec, 'Includes special characters (!@#$%^&*)');
+
+            if (hasLen) score++;
+            if (hasUpper) score++;
+            if (hasNum) score++;
+            if (hasSpec) score++;
+
+            if (val.length === 0) {
+                fill.style.width = '0%';
+                status.innerText = 'Strength: Waiting for input...';
+                status.style.color = '#8fa89b';
+            } else if (score <= 1) {
+                fill.style.width = '25%';
+                fill.style.backgroundColor = '#ff4d4d';
+                status.innerText = 'Strength: WEAK (High Vulnerability)';
+                status.style.color = '#ff4d4d';
+            } else if (score <= 3) {
+                fill.style.width = '65%';
+                fill.style.backgroundColor = '#ffaa00';
+                status.innerText = 'Strength: MEDIUM (Moderate Security)';
+                status.style.color = '#ffaa00';
+            } else {
+                fill.style.width = '100%';
+                fill.style.backgroundColor = '#39ff70';
+                status.innerText = 'Strength: STRONG (High Security)';
+                status.style.color = '#39ff70';
+            }
+        }
+
+        function updateRule(id, isValid, text) {
+            
