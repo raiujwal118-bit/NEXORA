@@ -26,18 +26,88 @@
         .card h3 { color: #39ff70; font-size: 18px; margin-bottom: 12px; }
         .card p { color: #8fa89b; font-size: 14px; line-height: 1.5; }
 
-        /* Quick Tools Section */
-        .tools-section { background: #08110c; border: 1px solid #173b25; border-radius: 8px; padding: 35px; max-width: 700px; margin: 0 auto 60px auto; }
-        .tools-section h2 { color: #ffffff; text-align: center; font-size: 22px; margin-bottom: 10px; }
-        .tools-section p { color: #8fa89b; text-align: center; font-size: 14px; margin-bottom: 25px; }
-        .tool-box { margin-bottom: 25px; }
-        .tool-box label { display: block; color: #39ff70; font-size: 14px; font-weight: bold; margin-bottom: 8px; }
-        .tool-input-group { display: flex; gap: 10px; }
-        .tool-input-group input { flex: 1; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #eaffea; font-size: 14px; }
-        .tool-btn { background: #39ff70; color: #050a08; border: none; padding: 12px 20px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.3s; }
-        .tool-btn:hover { background: #2ecc61; }
-        .tool-result { margin-top: 10px; background: #050a08; border: 1px solid #173b25; padding: 12px; border-radius: 5px; word-break: break-all; color: #8fa89b; font-size: 13px; font-family: monospace; }
-
         /* Contact Section Style */
         .contact-section { background: #08110c; border: 1px solid #173b25; border-radius: 8px; padding: 35px; max-width: 600px; margin: 0 auto 60px auto; }
-        .contact-section h2 { color: #ffffff; text
+        .contact-section h2 { color: #ffffff; text-align: center; font-size: 22px; margin-bottom: 10px; }
+        .contact-section p { color: #8fa89b; text-align: center; font-size: 14px; margin-bottom: 25px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #eaffea; font-size: 14px; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #39ff70; outline: none; }
+        .submit-btn { width: 100%; background: #39ff70; color: #050a08; border: none; padding: 12px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { background: #2ecc61; box-shadow: 0 0 10px rgba(57, 255, 112, 0.3); }
+
+        footer { text-align: center; color: #8fa89b; font-size: 13px; padding-top: 25px; border-top: 1px solid #112217; }
+        .footer-links { margin-top: 10px; }
+        .footer-links a { color: #39ff70; text-decoration: none; margin: 0 10px; font-size: 12px; }
+        .footer-links a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">NEXORA</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+            <a href="privacy-terms.html">Legal</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Architecting Digital Sovereignty</h1>
+        <p>A next-generation platform for real-time security diagnostics, neural systems, and global network intelligence.</p>
+    </div>
+
+    <h2 class="section-title" id="features">CORE MODULES</h2>
+
+    <div class="grid-container">
+        <a href="cyber-security.html" class="card">
+            <h3>🔒 Cyber Security</h3>
+            <p>Live Password Strength & Real-time Vulnerability Checker tool.</p>
+        </a>
+
+        <a href="next-gen-tech.html" class="card">
+            <h3>⚡ Next-Gen Tech</h3>
+            <p>Interactive AI Command Terminal Sandbox & System Vitals.</p>
+        </a>
+
+        <a href="digital-innovation.html" class="card">
+            <h3>💡 Digital Innovation</h3>
+            <p>Real-time Idea Feasibility Evaluator & Scalability Metrics.</p>
+        </a>
+
+        <a href="global-intelligence.html" class="card">
+            <h3>🌍 Global Intelligence</h3>
+            <p>Worldwide Active Grid Monitor & Neural Node Latency Ping Test.</p>
+        </a>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>GET IN TOUCH</h2>
+        <p>Have a project or query? Send us a message.</p>
+        <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+    </div>
+
+    <footer>
+        <div>&copy; 2026 NEXORA Platform. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="privacy-terms.html">Privacy Policy</a> | 
+            <a href="privacy-terms.html">Terms & Conditions</a>
+        </div>
+    </footer>
+
+</body>
+</html>
