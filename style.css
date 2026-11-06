@@ -1,0 +1,34 @@
+/* NEXORA Cyberworld Global Cyber Theme */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: #020503;
+    color: #39ff70;
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Matrix grid background effect */
+body::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 999;
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    border-bottom: 1px solid #173b25;
+    background: rgba(5, 10, 8, 0.9);
+    backdrop
+
