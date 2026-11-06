@@ -26,6 +26,16 @@
         .card h3 { color: #39ff70; font-size: 18px; margin-bottom: 12px; }
         .card p { color: #8fa89b; font-size: 14px; line-height: 1.5; }
 
+        /* Contact Section Style */
+        .contact-section { background: #08110c; border: 1px solid #173b25; border-radius: 8px; padding: 35px; max-width: 600px; margin: 0 auto 60px auto; }
+        .contact-section h2 { color: #ffffff; text-align: center; font-size: 22px; margin-bottom: 10px; }
+        .contact-section p { color: #8fa89b; text-align: center; font-size: 14px; margin-bottom: 25px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #eaffea; font-size: 14px; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #39ff70; outline: none; }
+        .submit-btn { width: 100%; background: #39ff70; color: #050a08; border: none; padding: 12px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { background: #2ecc61; box-shadow: 0 0 10px rgba(57, 255, 112, 0.3); }
+
         footer { text-align: center; color: #8fa89b; font-size: 13px; padding-top: 25px; border-top: 1px solid #112217; }
         .footer-links { margin-top: 10px; }
         .footer-links a { color: #39ff70; text-decoration: none; margin: 0 10px; font-size: 12px; }
@@ -39,6 +49,7 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
             <a href="privacy-terms.html">Legal</a>
         </div>
     </nav>
@@ -72,6 +83,31 @@
         </a>
     </div>
 
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact">
+        <h2>GET IN TOUCH</h2>
+        <p>Have a project or query? Send us a message.</p>
+        <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+    </div>
+
     <footer>
         <div>&copy; 2026 NEXORA Platform. All rights reserved.</div>
-        <div class="footer-
+        <div class="footer-links">
+            <a href="privacy-terms.html">Privacy Policy</a> | 
+            <a href="privacy-terms.html">Terms & Conditions</a>
+        </div>
+    </footer>
+
+</body>
+</html>
