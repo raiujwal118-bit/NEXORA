@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Intelligence | NEXORA</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #050a08; color: #eaffea; font-family: 'Courier New', Courier, monospace; min-height: 100vh; padding: 40px 8%; }
+        .back-btn { display: inline-block; color: #39ff70; text-decoration: none; margin-bottom: 30px; font-weight: bold; font-family: Arial, sans-serif; }
+        .back-btn:hover { text-decoration: underline; }
+        h1 { font-size: 36px; color: #ffffff; margin-bottom: 15px; border-bottom: 2px solid #173b25; padding-bottom: 10px; font-family: Arial, sans-serif; }
+        p { color: #8fa89b; font-size: 16px; line-height: 1.6; margin-bottom: 40px; font-family: Arial, sans-serif; }
+        
+        .intel-card { background: #08110c; border: 1px solid #173b25; border-radius: 8px; padding: 25px; max-width: 700px; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .intel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #173b25; padding-bottom: 12px; font-family: Arial, sans-serif; }
+        .intel-header h2 { color: #39ff70; font-size: 20px; }
+        .status-badge { background: #112217; color: #39ff70; padding: 5px 10px; border-radius: 4px; font-size: 12px; border: 1px solid #173b25; }
+        
+        .node-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+        .node-item { background: #050a08; border: 1px solid #173b25; padding: 12px 15px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; }
+        .node-info span { display: block; }
+        .node-name { color: #eaffea; font-weight: bold; font-size: 14px; font-family: Arial, sans-serif; }
+        .node-loc { color: #8fa89b; font-size: 12px; }
+        .node-status { color: #39ff70; font-size: 13px; font-weight: bold; }
+        
+        .action-btn { width: 100%; background: #173b25; border: 1px solid #39ff70; color: #39ff70; padding: 12px; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: bold; font-family: Arial, sans-serif; }
+        .action-btn:hover { background: #39ff70; color: #050a08; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">&#8592; Back to Home</a>
+    <h1>Global Intelligence & Analytics</h1>
+    <p>Monitoring worldwide decentralized security grids, neural relays, and real-time node latency.</p>
+
+    <div class="intel-card">
+        <div class="intel-header">
+            <h2>🌍 Active Global Grid Nodes</h2>
+            <span class="status-badge" id="grid-status">Status: SECURE</span>
+        </div>
+        
+        <div class="node-grid">
+            <div class="node-item">
+                <div class="node-info">
+                    <span class="node-name">NEXORA-AP-01 (Asia-South)</span>
+                    <span class="node-loc">Latency: <span id="lat-1">18</span>ms</span>
+                </div>
+                <div class="node-status" id="st-1">ONLINE [SYNCHRONIZED]</div>
+            </div>
+            <div class="node-item">
+                <div class="node-info">
+                    <span class="node-name">NEXORA-EU-04 (Europe-Central)</span>
+                    <span class="node-loc">Latency: <span id="lat-2">42</span>ms</span>
+                </div>
+                <div class="node-status" id="st-2">ONLINE [SYNCHRONIZED]</div>
+            </div>
+            <div class="node-item">
+                <div class="node-info">
+                    <span class="node-name">NEXORA-NA-09 (Americas-East)</span>
+                    <span
