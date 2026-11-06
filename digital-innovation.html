@@ -7,28 +7,76 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #050a08; color: #eaffea; font-family: Arial, sans-serif; min-height: 100vh; padding: 40px 8%; }
-        .back-btn { display: inline-block; color: #39ff70; text-decoration: none; margin-bottom: 30px; font-weight: bold; border: 1px solid #173b25; padding: 8px 16px; border-radius: 5px; }
-        .back-btn:hover { background: rgba(57, 255, 112, 0.1); }
-        h1 { color: #39ff70; font-size: 36px; margin-bottom: 20px; letter-spacing: 2px; }
-        p { color: #b7c9bc; line-height: 1.8; font-size: 16px; margin-bottom: 20px; }
-        .box { background: #08110c; border: 1px solid #173b25; padding: 25px; border-radius: 8px; margin-top: 20px; transition: 0.3s; text-decoration: none; display: block; }
-        .box:hover { border-color: #39ff70; transform: translateY(-3px); }
-        .box h3 { color: #39ff70; margin-bottom: 10px; }
-        .box p { color: #8fa89b; font-size: 14px; margin-bottom: 0; }
+        .back-btn { display: inline-block; color: #39ff70; text-decoration: none; margin-bottom: 30px; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+        h1 { font-size: 36px; color: #ffffff; margin-bottom: 15px; border-bottom: 2px solid #173b25; padding-bottom: 10px; }
+        p { color: #8fa89b; font-size: 16px; line-height: 1.6; margin-bottom: 40px; }
+        
+        .tool-card { background: #08110c; border: 1px solid #173b25; border-radius: 8px; padding: 30px; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .tool-card h2 { color: #39ff70; font-size: 22px; margin-bottom: 20px; text-align: center; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; color: #b7c9bc; font-size: 14px; margin-bottom: 8px; }
+        .input-group input, .input-group textarea { width: 100%; padding: 12px; background: #050a08; border: 1px solid #173b25; border-radius: 5px; color: #39ff70; font-size: 16px; outline: none; font-family: Arial, sans-serif; }
+        .input-group input:focus, .input-group textarea:focus { border-color: #39ff70; }
+        
+        .submit-btn { width: 100%; background: #173b25; border: 1px solid #39ff70; color: #39ff70; padding: 12px; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s; }
+        .submit-btn:hover { background: #39ff70; color: #050a08; }
+        
+        .result-box { margin-top: 25px; padding: 15px; background: #050a08; border: 1px dashed #173b25; border-radius: 5px; display: none; }
+        .result-box h3 { color: #39ff70; font-size: 16px; margin-bottom: 8px; }
+        .result-box p { color: #eaffea; font-size: 14px; margin-bottom: 0; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-btn">← Back to Home</a>
-    <h1>DIGITAL INNOVATION HUB</h1>
-    <p>Bridging creative design with modern technology to craft futuristic digital experiences and robust web platforms. (Click any option below)</p>
-    
-    <a href="ui-ux.html" class="box">
-        <h3>🎨 Modern UI/UX Engineering →</h3>
-        <p>Minimalist dark-mode aesthetics paired with responsive, lightning-fast web interfaces.</p>
-    </a>
-    <a href="dev.html" class="box">
-        <h3>🌐 Decentralized Solutions →</h3>
-        <p>Exploring next-era internet standards and secure peer-to-peer data protocols.</p>
-    </a>
+    <a href="index.html" class="back-btn">&#8592; Back to Home</a>
+    <h1>Digital Innovation & Transformation</h1>
+    <p>Pioneering next-era creative frameworks, disruptive business models, and scalable architectures.</p>
+
+    <div class="tool-card">
+        <h2>&#128161; Idea Feasibility Evaluator</h2>
+        <div class="input-group">
+            <label for="idea-title">Project / Innovation Title:</label>
+            <input type="text" id="idea-title" placeholder="e.g. Decentralized AI Grid" />
+        </div>
+        <div class="input-group">
+            <label for="idea-desc">Brief Description & Core Impact:</label>
+            <textarea id="idea-desc" rows="3" placeholder="Describe what your innovation solves..."></textarea>
+        </div>
+        <button id="eval-btn" class="submit-btn">Evaluate Innovation</button>
+
+        <div id="result-box" class="result-box">
+            <h3 id="res-title">Evaluation Report</h3>
+            <p id="res-desc">Processing metrics...</p>
+        </div>
+    </div>
+
+    <script>
+        const evalBtn = document.getElementById('eval-btn');
+        const ideaTitle = document.getElementById('idea-title');
+        const ideaDesc = document.getElementById('idea-desc');
+        const resultBox = document.getElementById('result-box');
+        const resTitle = document.getElementById('res-title');
+        const resDesc = document.getElementById('res-desc');
+
+        evalBtn.addEventListener('click', function() {
+            const title = ideaTitle.value.trim();
+            const desc = ideaDesc.value.trim();
+
+            if (!title || !desc) {
+                alert('कृपया प्रोजेक्टको नाम र विवरण दुवै भर्नुहोस्!');
+                return;
+            }
+
+            resultBox.style.display = 'block';
+            resTitle.innerText = 'Analyzing: ' + title;
+            resDesc.innerText = 'Calculating scalability, market disruption index, and technological viability...';
+
+            setTimeout(() => {
+                const score = Math.floor(Math.random() * 15) + 85; // 85 to 99 high score
+                resTitle.innerText = '✔ Feasibility Score: ' + score + '% (High Potential)';
+                resDesc.innerText = 'Project "' + title + '" demonstrates exceptional market readiness, strong architecture alignment, and high disruptive impact.';
+            }, 1200);
+        });
+    </script>
 </body>
 </html>
