@@ -27,4 +27,82 @@
         .terminal-input-area { display: flex; border-top: 1px solid #173b25; background: #050a08; padding: 10px 15px; align-items: center; }
         .prompt-symbol { color: #39ff70; font-weight: bold; margin-right: 10px; }
         .terminal-input { background: transparent; border: none; outline: none; color: #eaffea; font-family: 'Courier New', Courier, monospace; font-size: 14px; flex-grow: 1; }
-        .run-btn { background: #173b25; border: 1px solid #39ff70; color: #39ff70; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-family
+        .run-btn { background: #173b25; border: 1px solid #39ff70; color: #39ff70; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; }
+        .run-btn:active { background: #39ff70; color: #050a08; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">&#8592; Back to Home</a>
+    <h1>Next-Gen Technology & Systems</h1>
+    <p>Exploring cutting-edge breakthroughs, quantum architectures, and autonomous AI integrations.</p>
+
+    <div class="terminal-card">
+        <div class="terminal-header">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <span class="terminal-title">nexora@ai-sandbox:~</span>
+        </div>
+        <div id="terminal-body" class="terminal-body">
+            <div class="log-line">NEXORA Neural Interface v4.0.2 Initialized.</div>
+            <div class="log-line log-dim">Type 'help' to view available diagnostic commands.</div>
+            <br>
+        </div>
+        <form id="term-form" class="terminal-input-area" onsubmit="return false;">
+            <span class="prompt-symbol">&gt;</span>
+            <input type="text" id="term-input" class="terminal-input" placeholder="Type command here..." autofocus autocomplete="off" />
+            <button type="button" id="run-btn" class="run-btn">RUN</button>
+        </form>
+    </div>
+
+    <script>
+        const termBody = document.getElementById('terminal-body');
+        const termInput = document.getElementById('term-input');
+        const runBtn = document.getElementById('run-btn');
+
+        function processCommand() {
+            const cmd = termInput.value.trim().toLowerCase();
+            if (!cmd) return;
+
+            appendLog('> ' + cmd, '#eaffea');
+            
+            if (cmd === 'help') {
+                appendLog('Available Commands:', '#39ff70');
+                appendLog('  status    - Check core system vitals', '#8fa89b');
+                appendLog('  scan      - Run deep security diagnostics', '#8fa89b');
+                appendLog('  ai-connect- Establish secure quantum uplink', '#8fa89b');
+                appendLog('  clear     - Clear terminal logs', '#8fa89b');
+            } else if (cmd === 'status') {
+                appendLog('[INFO] Core Temp: 32°C | Quantum Cores: 1024 Active | Status: Optimal', '#39ff70');
+            } else if (cmd === 'scan') {
+                appendLog('[SCANNING] Analyzing network sectors... No vulnerabilities detected.', '#39ff70');
+            } else if (cmd === 'ai-connect') {
+                appendLog('[SUCCESS] Connected to NEXORA Neural Network. AI Model online.', '#39ff70');
+            } else if (cmd === 'clear') {
+                termBody.innerHTML = '<div class="log-line">Terminal cleared. Type \'help\' for commands.</div><br>';
+            } else {
+                appendLog(`[ERROR] Command not recognized: '${cmd}'. Type 'help' for options.`, '#ff4d4d');
+            }
+            
+            termInput.value = '';
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        runBtn.addEventListener('click', processCommand);
+        termInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                processCommand();
+            }
+        });
+
+        function appendLog(text, color) {
+            const div = document.createElement('div');
+            div.className = 'log-line';
+            div.style.color = color;
+            div.innerText = text;
+            termBody.appendChild(div);
+        }
+    </script>
+</body>
+</html>
