@@ -57,4 +57,35 @@
             <div class="node-item">
                 <div class="node-info">
                     <span class="node-name">NEXORA-NA-09 (Americas-East)</span>
-                    <span
+                    <span class="node-loc">Latency: <span id="lat-3">76</span>ms</span>
+                </div>
+                <div class="node-status" id="st-3">ONLINE [SYNCHRONIZED]</div>
+            </div>
+        </div>
+
+        <button id="ping-btn" class="action-btn">Run Deep Global Ping Test</button>
+    </div>
+
+    <script>
+        const pingBtn = document.getElementById('ping-btn');
+        const gridStatus = document.getElementById('grid-status');
+        const lat1 = document.getElementById('lat-1');
+        const lat2 = document.getElementById('lat-2');
+        const lat3 = document.getElementById('lat-3');
+
+        pingBtn.addEventListener('click', function() {
+            gridStatus.innerText = 'Status: PINGING...';
+            gridStatus.style.color = '#ffaa00';
+            
+            setTimeout(() => {
+                lat1.innerText = Math.floor(Math.random() * 10) + 12;
+                lat2.innerText = Math.floor(Math.random() * 15) + 35;
+                lat3.innerText = Math.floor(Math.random() * 20) + 65;
+                
+                gridStatus.innerText = 'Status: OPTIMAL';
+                gridStatus.style.color = '#39ff70';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
